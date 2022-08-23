@@ -16,9 +16,9 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const { firstName, lastName, imgURL, age, sex, hobby } = req.body;
   console.log(firstName);
 
-  const foundUser = await Users.find({
-    firstName: String,
-    lastName: String,
+  const foundUser = await Users.findOne({
+    firstName: firstName,
+    lastName: lastName,
   });
 
   console.log(foundUser);
@@ -28,29 +28,29 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       success: false,
       data: "User already exists",
     });
-  }
-
-  const createdUser = await Users.create({
-    firstName,
-    lastName,
-    imgURL,
-    age,
-    sex,
-    hobby,
-  });
-
-  if (createdUser) {
-    res.json({
-      success: true,
-      message: "User creation was successful",
-      data: createdUser,
-    });
   } else {
-    res.json({
-      success: false,
-      message: "User creation was unsuccesful",
-      data: {},
+    const createdUser = await Users.create({
+      firstName,
+      lastName,
+      imgURL,
+      age,
+      sex,
+      hobby,
     });
+
+    if (createdUser) {
+      res.json({
+        success: true,
+        message: "User creation was successful",
+        data: createdUser,
+      });
+    } else {
+      res.json({
+        success: false,
+        message: "User creation was unsuccesful",
+        data: {},
+      });
+    }
   }
 };
 
