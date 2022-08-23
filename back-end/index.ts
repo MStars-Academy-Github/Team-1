@@ -1,19 +1,20 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import dotenv from "dotenv";
+import routes from "./routes/userRouter";
+import mongoose, { ConnectOptions } from "mongoose";
 
 dotenv.config();
 
 const app: Express = express();
 const PORT = process.env.PORT;
+const DB_CONNECTION = process.env.ATLAS_MONGO_CONNECTION || "";
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello Team 1");
-});
+app.use(express.json());
+app.use("/users", routes);
 
-app.post("/", (req: Request, res: Response) => {
-  res.send("successfully created");
-});
-
-app.listen(PORT, () => {
-  console.log("Server is running at PORT = " + PORT);
+mongoose.connect(DB_CONNECTION).then(() => {
+  console.log("Connected to MongoDB");
+  app.listen(PORT, () => {
+    console.log("Server is listening to the port " + PORT);
+  });
 });
