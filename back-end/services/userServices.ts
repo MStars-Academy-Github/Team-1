@@ -1,7 +1,12 @@
 import Users, { I_UserDocument } from "../model/users";
 import { DocumentDefinition } from "mongoose";
 import bcryptjs from "bcryptjs";
+import jwt, { Secret, JwtPayload } from "jsonwebtoken";
+export const SECRET_KEY: Secret = process.env.TOKEN_KEY || "password";
 
+export interface CustomRequest extends Request {
+  token: string | JwtPayload;
+}
 async function findUserByEmail(
   email: String
 ): Promise<DocumentDefinition<I_UserDocument>[]> {
@@ -32,7 +37,15 @@ async function login(email: string, password: string) {
     const isMatch = bcryptjs.compareSync(password, foundUser.password);
 
     if (isMatch) {
-      return foundUser;
+      const token = jwt.sign(
+        { _id: foundUser._id?.toString(), firstName: foundUser.firstName },
+        SECRET_KEY,
+        {
+          expiresIn: "2 days",
+        }
+      );
+
+      return { user: { _id: String, firstName: String }, token: token };
     } else {
       throw new Error("Password is not correct");
     }
