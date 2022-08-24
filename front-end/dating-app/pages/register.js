@@ -2,43 +2,38 @@ import React from "react";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import WcIcon from "@mui/icons-material/Wc";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-
-import { useState } from "react";
-
+import axios from "axios";
 export default function register() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [gender, setGender] = useState("");
-  const [password, setPassword] = useState("");
-
-  const SubmitHandler = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    console.log(
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      dateOfBirth,
-      gender,
-      gender,
-      password
-    );
+    const firstName = e.target[0].value;
+    const lastName = e.target[1].value;
+    const imgURL = e.target[2].value;
+    const age = e.target[4].value;
+    const sex = e.target[5].value;
+    const hobby = e.target[3].value;
+    console.log(sex);
+    axios
+      .post("http://localhost:4000/users", {
+        firstName: firstName,
+        lastName: lastName,
+        imgURL: imgURL,
+        age: age,
+        sex: sex,
+        hobby: hobby,
+      })
+      .then((res) => console.log(res.status))
+      .catch((error) => console.log(error));
   };
   return (
     <div className="flex items-center justify-center min-h-screen  bg-red-200">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <div className="bg-red-100 rounded-2xl shadow-2xl flex w-1/2 max-w-2xl">
           <div className="w-full">
-            <form onSubmit={SubmitHandler}>
-              <button className="mt-2 outline rounded-lg bg-pink-200 px-3">
-                <a href="/">back to home</a>
-              </button>
+            <form onSubmit={submit}>
               <div className="py-10">
                 <h2 className="text-1xl font-bold text-gray-700">
                   Find your lover from here!
@@ -51,10 +46,8 @@ export default function register() {
                     <input
                       className="bg-white outline-none rounded-2xl w-80 pl-2"
                       type="name"
-                      name="name"
-                      value={firstName}
+                      name="firstName"
                       placeholder="Write your First Name"
-                      onChange={(e) => setFirstName(e.target.value)}
                     />
                   </div>
                   <div className="bg-yellow-200  w-80 p-2 flex items-center rounded-2xl mb-10">
@@ -62,7 +55,7 @@ export default function register() {
                     <input
                       className="bg-white outline-none rounded-2xl w-80 pl-2"
                       type="name"
-                      name="name"
+                      name="lastName"
                       placeholder="Write your Last Name"
                     />
                   </div>
@@ -80,17 +73,17 @@ export default function register() {
                     <input
                       className="bg-white outline-none rounded-2xl w-80 pl-2"
                       type="number"
-                      name="phone number"
+                      name="phoneNumber"
                       placeholder="Insert your phone number"
                     />
                   </div>
                   <div className="bg-yellow-200  w-80 p-2 flex items-center rounded-2xl mb-10">
-                    <CalendarTodayIcon className="text-white mr-3" />
+                    <AccountCircleIcon className="text-white mr-3" />
                     <input
                       className="bg-white outline-none rounded-2xl w-80 pl-2"
-                      type="date"
-                      name="date of birth"
-                      placeholder="Insert your date of birth"
+                      type="number"
+                      name="age"
+                      placeholder="Insert your age"
                     />
                   </div>
                   <div class="bg-yellow-200 h-10 w-40 p-2 mt-5 flex items-center rounded-2xl">
@@ -119,19 +112,18 @@ export default function register() {
                     <input
                       className="bg-white outline-none rounded-2xl w-80 pl-2"
                       type="password"
-                      name="password"
+                      name="confirmPassword"
                       placeholder="repeat password again"
                     />
                   </div>
 
                   <div>
-                    <a
-                      href="#"
+                    <button
                       type="submit"
                       className="border-2 border-pink-200 bg-pink-200 text-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-pink-200 mt-10"
                     >
                       Submit
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

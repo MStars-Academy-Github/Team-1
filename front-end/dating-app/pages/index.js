@@ -2,6 +2,20 @@ import React from "react";
 import Head from "next/head";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import InterestsIcon from "@mui/icons-material/Interests";
+import LoyaltyIcon from "@mui/icons-material/Loyalty";
+import Diversity1Icon from "@mui/icons-material/Diversity1";
+import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
+import Diversity2Icon from "@mui/icons-material/Diversity2";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import FmdGoodIcon from "@mui/icons-material/FmdGood";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import MaleIcon from "@mui/icons-material/Male";
+import FemaleIcon from "@mui/icons-material/Female";
+import ManIcon from "@mui/icons-material/Man";
+import WomanIcon from "@mui/icons-material/Woman";
 
 export default function index() {
   return (
@@ -10,6 +24,42 @@ export default function index() {
         <title>Create next app</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <section>
+        <div className="row">
+          <div>
+            <FavoriteIcon className="ico" />
+            <FavoriteBorderIcon className="ico" />
+            <InterestsIcon className="ico" />
+            <LoyaltyIcon className="ico" />
+            <ManIcon className="ico" />
+            <Diversity1Icon className="ico" />
+            <WomanIcon className="ico" />
+            <MonitorHeartIcon className="ico" />
+            <Diversity2Icon className="ico" />
+            <VolunteerActivismIcon className="ico" />
+            <FmdGoodIcon className="ico" />
+            <ThumbUpOffAltIcon className="ico" />
+            <MaleIcon className="ico" />
+            <FemaleIcon className="ico" />
+          </div>
+          <div>
+            <FavoriteIcon className="ico" />
+            <FavoriteBorderIcon className="ico" />
+            <InterestsIcon className="ico" />
+            <LoyaltyIcon className="ico" />
+            <ManIcon className="ico" />
+            <Diversity1Icon className="ico" />
+            <WomanIcon className="ico" />
+            <MonitorHeartIcon className="ico" />
+            <Diversity2Icon className="ico" />
+            <VolunteerActivismIcon className="ico" />
+            <FmdGoodIcon className="ico" />
+            <ThumbUpOffAltIcon className="ico" />
+            <MaleIcon className="ico" />
+            <FemaleIcon className="ico" />
+          </div>
+        </div>
+      </section>
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <div className="bg-red-100 rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
           <div className="w-3/5">
