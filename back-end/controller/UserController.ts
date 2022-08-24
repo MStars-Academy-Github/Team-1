@@ -13,12 +13,12 @@ const getUsers = (req: Request, res: Response, next: NextFunction) => {
 };
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
-  const { firstName, lastName, imgURL, age, sex, hobby } = req.body;
+  const { firstName, lastName, email, phoneNumber, birthday, sex, password } =
+    req.body;
   console.log(firstName);
 
   const foundUser = await Users.findOne({
-    firstName: firstName,
-    lastName: lastName,
+    email: email,
   });
 
   console.log(foundUser);
@@ -32,10 +32,11 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     const createdUser = await Users.create({
       firstName,
       lastName,
-      imgURL,
-      age,
+      email,
+      phoneNumber,
+      birthday,
       sex,
-      hobby,
+      password,
     });
 
     if (createdUser) {

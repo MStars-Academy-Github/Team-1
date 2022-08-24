@@ -8,17 +8,23 @@ const UsersSchema = new Schema({
   lastName: {
     type: String,
   },
-  imgURL: {
+  email: {
     type: String,
   },
-  age: {
+  birthday: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
     type: Number,
+    required: true,
   },
   sex: {
     type: String,
   },
-  hobby: {
+  password: {
     type: String,
+    required: true,
   },
 });
 
