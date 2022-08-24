@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import bcryptjs from "bcryptjs";
 import * as userServices from "../services/userServices";
+import { getErrorMessage } from "../util/errors.util";
 
 const getUsers = async (req: Request, res: Response, next: NextFunction) => {
   const allUsers = await userServices.findAllUsers();
@@ -35,7 +36,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       });
       res.status(200).send("User created successfully");
     } catch (error) {
-      return res.status(500).send("User could not be created");
+      return res.status(500).send(getErrorMessage(error));
     }
   }
 };
@@ -47,7 +48,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 
     res.status(200).send(foundUser);
   } catch (error) {
-    return res.status(500).send(error);
+    return res.status(500).send(getErrorMessage(error));
   }
 };
 export default { getUsers, createUser, login };
