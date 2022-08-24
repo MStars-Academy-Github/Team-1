@@ -42,29 +42,12 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
 
 const login = async (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
-  const foundUser = await findUserByEmail(email);
+  try {
+    const foundUser = await userServices.login(email, password);
 
-  if (!foundUser) {
-    res.json({
-      success: false,
-      data: "User does not exist. Please register",
-    });
-  } else {
-    bcryptjs.compare(password, foundUser.password);
-
-    // if (createdUser) {
-    //   res.json({
-    //     success: true,
-    //     message: "User creation was successful",
-    //     data: createdUser,
-    //   });
-    // } else {
-    //   res.json({
-    //     success: false,
-    //     message: "User creation was unsuccesful",
-    //     data: {},
-    //   });
-    // }
+    res.status(200).send(foundUser);
+  } catch (error) {
+    return res.status(500).send(error);
   }
 };
 export default { getUsers, createUser, login };

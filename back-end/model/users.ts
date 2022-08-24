@@ -22,6 +22,7 @@ const UsersSchema: mongoose.Schema<I_UserDocument> = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   birthday: {
     type: String,
