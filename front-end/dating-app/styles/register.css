@@ -1,0 +1,18 @@
+.register-form {
+  display: block;
+  padding: 30%;
+}
+.register-form h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-left: 10%;
+  font-size: 20px;
+  color: rgb(194, 153, 94);
+}
+.field-back {
+  background-color: rgb(245, 240, 245);
+}
+.form-box {
+  width: 100%;
+  align-items: center;
+  margin-top: -20%;
+}
