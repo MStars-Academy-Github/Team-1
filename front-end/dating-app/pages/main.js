@@ -88,6 +88,7 @@ export default function main() {
                 <div>
                   <a
                     href="#"
+                    type="submit"
                     className="border-2 border-pink-200 bg-pink-200 text-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-pink-200 mt-10"
                   >
                     Submit
