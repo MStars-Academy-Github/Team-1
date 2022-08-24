@@ -1,28 +1,24 @@
-import Users from "../model/users";
 import { NextFunction, Request, Response } from "express";
 import bcryptjs from "bcryptjs";
+import {
+  findUserByEmail,
+  findAllUsers,
+  registerUser,
+} from "../services/userServices";
 
-const getUsers = (req: Request, res: Response, next: NextFunction) => {
-  Users.find({}, (err: Error, data: any) => {
-    if (err) {
-      return err;
-    }
-    res.json({
-      data: data,
-    });
+const getUsers = async (req: Request, res: Response, next: NextFunction) => {
+  const allUsers = await findAllUsers();
+  res.json({
+    success: true,
+    data: allUsers,
   });
+  next();
 };
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const { firstName, lastName, email, phoneNumber, birthday, sex, password } =
     req.body;
-  console.log(firstName);
-
-  const foundUser = await Users.findOne({
-    email: email,
-  });
-
-  console.log(foundUser);
+  const foundUser = await findUserByEmail(email);
 
   if (foundUser) {
     res.json({
@@ -31,15 +27,15 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     });
   } else {
     const encryptedPassword = await bcryptjs.hash(password, 10);
-    const createdUser = await Users.create({
+    const createdUser = await registerUser(
       firstName,
       lastName,
       email,
       phoneNumber,
       birthday,
       sex,
-      password: encryptedPassword,
-    });
+      encryptedPassword
+    );
 
     if (createdUser) {
       res.json({

@@ -1,7 +1,7 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
 import routes from "./routes/userRouter";
-import mongoose, { ConnectOptions } from "mongoose";
+import mongoose from "mongoose";
 
 dotenv.config();
 
