@@ -58,4 +58,5 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   }
   next();
 };
+
 export default { getUsers, createUser, login };

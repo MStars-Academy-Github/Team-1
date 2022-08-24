@@ -47,7 +47,10 @@ async function login(email: string, password: string) {
         }
       );
 
-      return { user: { _id: String, firstName: String }, token: token };
+      return {
+        user: { email: foundUser.email, firstName: foundUser.firstName },
+        token: token,
+      };
     } else {
       throw new Error("Password is not correct");
     }
