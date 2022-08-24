@@ -1,29 +1,21 @@
-import Users from "../model/users";
+import Users, { I_UserDocument } from "../model/users";
+import { DocumentDefinition } from "mongoose";
+
 async function findUserByEmail(email: String) {
-  return await Users.find({ email });
+  return Users.find({ email });
 }
 async function findAllUsers() {
   return await Users.find({});
 }
 
 async function registerUser(
-  firstName: String,
-  lastName: String,
-  email: String,
-  phoneNumber: Number,
-  birthday: String,
-  sex: String,
-  encryptedPassword: String
-) {
-  return await Users.create({
-    firstName,
-    lastName,
-    email,
-    phoneNumber,
-    birthday,
-    sex,
-    password: encryptedPassword,
-  });
+  user: DocumentDefinition<I_UserDocument>
+): Promise<void> {
+  try {
+    await Users.create(user);
+  } catch (error) {
+    throw error;
+  }
 }
 
 export { findUserByEmail, findAllUsers, registerUser };

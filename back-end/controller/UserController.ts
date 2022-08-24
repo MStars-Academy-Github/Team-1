@@ -1,13 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import bcryptjs from "bcryptjs";
-import {
-  findUserByEmail,
-  findAllUsers,
-  registerUser,
-} from "../services/userServices";
+import * as userServices from "../services/userServices";
 
 const getUsers = async (req: Request, res: Response, next: NextFunction) => {
-  const allUsers = await findAllUsers();
+  const allUsers = await userServices.findAllUsers();
   res.json({
     success: true,
     data: allUsers,
@@ -18,7 +14,7 @@ const getUsers = async (req: Request, res: Response, next: NextFunction) => {
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const { firstName, lastName, email, phoneNumber, birthday, sex, password } =
     req.body;
-  const foundUser = await findUserByEmail(email);
+  const foundUser = await userServices.findUserByEmail(email);
 
   if (foundUser) {
     res.json({
@@ -27,30 +23,48 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     });
   } else {
     const encryptedPassword = await bcryptjs.hash(password, 10);
-    const createdUser = await registerUser(
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      birthday,
-      sex,
-      encryptedPassword
-    );
-
-    if (createdUser) {
-      res.json({
-        success: true,
-        message: "User creation was successful",
-        data: createdUser,
+    try {
+      await userServices.registerUser({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        birthday: birthday,
+        sex: sex,
+        password: encryptedPassword,
       });
-    } else {
-      res.json({
-        success: false,
-        message: "User creation was unsuccesful",
-        data: {},
-      });
+      res.status(200).send("User created successfully");
+    } catch (error) {
+      return res.status(500).send("User could not be created");
     }
   }
 };
 
-export default { getUsers, createUser };
+const login = async (req: Request, res: Response, next: NextFunction) => {
+  const { email, password } = req.body;
+  const foundUser = await findUserByEmail(email);
+
+  if (!foundUser) {
+    res.json({
+      success: false,
+      data: "User does not exist. Please register",
+    });
+  } else {
+    bcryptjs.compare(password, foundUser.password);
+
+    // if (createdUser) {
+    //   res.json({
+    //     success: true,
+    //     message: "User creation was successful",
+    //     data: createdUser,
+    //   });
+    // } else {
+    //   res.json({
+    //     success: false,
+    //     message: "User creation was unsuccesful",
+    //     data: {},
+    //   });
+    // }
+  }
+};
+export default { getUsers, createUser, login };
