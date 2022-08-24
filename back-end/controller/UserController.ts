@@ -1,5 +1,6 @@
 import Users from "../model/users";
 import { NextFunction, Request, Response } from "express";
+import bcryptjs from "bcryptjs";
 
 const getUsers = (req: Request, res: Response, next: NextFunction) => {
   Users.find({}, (err: Error, data: any) => {
@@ -29,6 +30,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       data: "User already exists",
     });
   } else {
+    const encryptedPassword = await bcryptjs.hash(password, 10);
     const createdUser = await Users.create({
       firstName,
       lastName,
@@ -36,7 +38,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       phoneNumber,
       birthday,
       sex,
-      password,
+      password: encryptedPassword,
     });
 
     if (createdUser) {
