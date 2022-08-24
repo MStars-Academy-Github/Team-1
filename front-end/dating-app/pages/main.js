@@ -5,7 +5,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 
-export default function register() {
+export default function main() {
   return (
     <div className="flex items-center justify-center min-h-screen  bg-red-200">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
