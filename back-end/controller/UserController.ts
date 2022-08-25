@@ -81,4 +81,18 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-export default { getUsers, createUser, login, getUserByEmail };
+const updateUser = async (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.query);
+  const email = req.query.email as string;
+  const body = req.body;
+  try {
+    const foundUser = await userServices.updateUser(email, body);
+    res.status(200).json({ success: true, data: foundUser });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: true, data: getErrorMessage(error) });
+  }
+  next();
+};
+export default { getUsers, createUser, login, getUserByEmail, updateUser };

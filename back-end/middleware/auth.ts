@@ -8,7 +8,6 @@ export interface CustomRequest extends Request {
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
   const token = req.body.token;
   const SECRET_KEY = process.env.TOKEN_KEY || "password";
-  console.log(token);
 
   if (!token) {
     return res.status(403).json({

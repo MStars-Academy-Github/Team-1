@@ -7,6 +7,15 @@ export const SECRET_KEY: Secret = process.env.TOKEN_KEY || "password";
 export interface CustomRequest extends Request {
   token: string | JwtPayload;
 }
+async function updateUser(
+  email: String,
+  body: String
+): Promise<DocumentDefinition<I_UserDocument>[]> {
+  const filter = { email: email };
+  const update = body;
+  // return Users.findOneAndUpdate(filter, update);
+  return [];
+}
 
 async function findUserByEmail(
   email: String
@@ -60,4 +69,4 @@ async function login(email: string, password: string) {
   }
 }
 
-export { findUserByEmail, findAllUsers, registerUser, login };
+export { findUserByEmail, findAllUsers, registerUser, login, updateUser };
