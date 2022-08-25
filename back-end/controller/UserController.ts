@@ -1,57 +1,62 @@
-import Users from "../model/users";
 import { NextFunction, Request, Response } from "express";
+import bcryptjs from "bcryptjs";
+import * as userServices from "../services/UserServices";
+import { getErrorMessage } from "../util/errors.util";
 
-const getUsers = (req: Request, res: Response, next: NextFunction) => {
-  Users.find({}, (err: Error, data: any) => {
-    if (err) {
-      return err;
-    }
-    res.json({
-      data: data,
-    });
+const getUsers = async (req: Request, res: Response, next: NextFunction) => {
+  const allUsers = await userServices.findAllUsers();
+  res.json({
+    success: true,
+    data: allUsers,
   });
+  next();
 };
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
-  const { firstName, lastName, imgURL, age, sex, hobby } = req.body;
-  console.log(firstName);
+  const { firstName, lastName, email, phoneNumber, birthday, sex, password } =
+    req.body;
+  const foundUser = await userServices.findUserByEmail(email);
 
-  const foundUser = await Users.findOne({
-    firstName: firstName,
-    lastName: lastName,
-  });
-
-  console.log(foundUser);
-
-  if (foundUser) {
+  if (foundUser.length > 0) {
     res.json({
       success: false,
       data: "User already exists",
     });
   } else {
-    const createdUser = await Users.create({
-      firstName,
-      lastName,
-      imgURL,
-      age,
-      sex,
-      hobby,
-    });
-
-    if (createdUser) {
-      res.json({
-        success: true,
-        message: "User creation was successful",
-        data: createdUser,
+    const encryptedPassword = await bcryptjs.hash(password, 10);
+    try {
+      await userServices.registerUser({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        birthday: birthday,
+        sex: sex,
+        password: encryptedPassword,
       });
-    } else {
-      res.json({
-        success: false,
-        message: "User creation was unsuccesful",
-        data: {},
-      });
+      res
+        .status(200)
+        .json({ success: true, data: "User created successfully" });
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ success: false, data: getErrorMessage(error) });
     }
   }
+  next();
 };
 
-export default { getUsers, createUser };
+const login = async (req: Request, res: Response, next: NextFunction) => {
+  const { email, password } = req.body;
+  try {
+    const foundUser = await userServices.login(email, password);
+    res.status(200).json({ success: true, data: foundUser });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: true, data: getErrorMessage(error) });
+  }
+  next();
+};
+
+export default { getUsers, createUser, login };
