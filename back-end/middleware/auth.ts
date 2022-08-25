@@ -1,25 +1,32 @@
-import jwt, { Secret, JwtPayload } from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
-export const SECRET_KEY: Secret = process.env.TOKEN_KEY || "password";
-
 export interface CustomRequest extends Request {
-  token: string | JwtPayload;
+  user: string | JwtPayload;
 }
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const token = req.header("Authorization")?.replace("Bearer ", "");
+  const token = req.body.token;
+  const SECRET_KEY = process.env.TOKEN_KEY || "password";
+  console.log(token);
 
-    if (!token) {
-      throw new Error();
-    }
-
-    const decoded = jwt.verify(token, SECRET_KEY);
-    (req as CustomRequest).token = decoded;
-
-    next();
-  } catch (err) {
-    res.status(401).send("Please authenticate");
+  if (!token) {
+    return res.status(403).json({
+      success: false,
+      data: "User token should be provided",
+    });
   }
+
+  try {
+    const decoded = jwt.verify(token, SECRET_KEY);
+    console.log(decoded);
+    (req as CustomRequest).user = decoded;
+  } catch (error) {
+    console.log(error);
+    return res.status(401).json({
+      success: false,
+      message: "Invalid Token",
+    });
+  }
+  return next();
 };

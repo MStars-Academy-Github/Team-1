@@ -31,6 +31,7 @@ async function registerUser(
 async function login(email: string, password: string) {
   try {
     const foundUser = await Users.findOne({ email });
+    const SECRET_KEY = process.env.TOKEN_KEY || "password";
 
     if (!foundUser) {
       throw new Error("No user exists");
@@ -40,10 +41,10 @@ async function login(email: string, password: string) {
 
     if (isMatch) {
       const token = jwt.sign(
-        { _id: foundUser._id?.toString(), firstName: foundUser.firstName },
+        { userName: foundUser.firstName, email },
         SECRET_KEY,
         {
-          expiresIn: "2 days",
+          expiresIn: "2h",
         }
       );
 
