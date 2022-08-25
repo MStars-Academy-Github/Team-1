@@ -18,6 +18,7 @@ const getUserByEmail = async (
   next: NextFunction
 ) => {
   const { email } = req.body;
+  console.log(req.body);
   const user = await userServices.findUserByEmail(email);
   res.json({
     success: true,
@@ -80,4 +81,4 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-export default { getUsers, createUser, login };
+export default { getUsers, createUser, login, getUserByEmail };
