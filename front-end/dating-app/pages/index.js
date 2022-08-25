@@ -24,39 +24,183 @@ export default function index() {
         <title>Create next app</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section>
-        <div className="row">
-          <div>
-            <FavoriteIcon className="ico" />
-            <FavoriteBorderIcon className="ico" />
-            <InterestsIcon className="ico" />
-            <LoyaltyIcon className="ico" />
-            <ManIcon className="ico" />
-            <Diversity1Icon className="ico" />
-            <WomanIcon className="ico" />
-            <MonitorHeartIcon className="ico" />
-            <Diversity2Icon className="ico" />
-            <VolunteerActivismIcon className="ico" />
-            <FmdGoodIcon className="ico" />
-            <ThumbUpOffAltIcon className="ico" />
-            <MaleIcon className="ico" />
-            <FemaleIcon className="ico" />
+      <section className="sec">
+        <div className="rov">
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
           </div>
-          <div>
-            <FavoriteIcon className="ico" />
-            <FavoriteBorderIcon className="ico" />
-            <InterestsIcon className="ico" />
-            <LoyaltyIcon className="ico" />
-            <ManIcon className="ico" />
-            <Diversity1Icon className="ico" />
-            <WomanIcon className="ico" />
-            <MonitorHeartIcon className="ico" />
-            <Diversity2Icon className="ico" />
-            <VolunteerActivismIcon className="ico" />
-            <FmdGoodIcon className="ico" />
-            <ThumbUpOffAltIcon className="ico" />
-            <MaleIcon className="ico" />
-            <FemaleIcon className="ico" />
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
+          </div>
+          <div className="icons">
+            <FavoriteIcon />
+            <FavoriteBorderIcon />
+            <InterestsIcon />
+            <LoyaltyIcon />
+            <ManIcon />
+            <Diversity1Icon />
+            <WomanIcon />
+            <MonitorHeartIcon />
+            <Diversity2Icon />
+            <VolunteerActivismIcon />
+            <FmdGoodIcon />
+            <ThumbUpOffAltIcon />
+            <MaleIcon />
+            <FemaleIcon />
           </div>
         </div>
       </section>
@@ -111,7 +255,7 @@ export default function index() {
             <div className="border-2 w-40 border-pink-400 inline-block mb-2"></div>
             <p className="mb-10">Come here and meet some girls and boys</p>
             <a
-              href="/register"
+              href="/users/login"
               className="border-2 border-pink-200 rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-pink-300"
             >
               Sign up

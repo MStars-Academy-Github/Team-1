@@ -11,19 +11,31 @@ export default function register() {
     e.preventDefault();
     const firstName = e.target[0].value;
     const lastName = e.target[1].value;
-    const imgURL = e.target[2].value;
-    const age = e.target[4].value;
+    const email = e.target[2].value;
+    const phoneNumber = e.target[3].value;
+    const birthday = e.target[4].value;
     const sex = e.target[5].value;
-    const hobby = e.target[3].value;
+    const password = e.target[6].value;
+    const confirmPassword = e.target[7].value;
+    console.log(firstName);
+    console.log(lastName);
+    console.log(email);
+    console.log(phoneNumber);
+    console.log(birthday);
     console.log(sex);
+    console.log(password);
+    console.log(confirmPassword);
     axios
-      .post("http://localhost:4000/users", {
+      .post("http://localhost:4000/users/register", {
         firstName: firstName,
         lastName: lastName,
-        imgURL: imgURL,
-        age: age,
+        email: email,
+        phoneNumber: phoneNumber,
+        birthday: birthday,
         sex: sex,
-        hobby: hobby,
+        birthday: birthday,
+        password: password,
+        confirmPassword: confirmPassword,
       })
       .then((res) => console.log(res.status))
       .catch((error) => console.log(error));
@@ -82,20 +94,20 @@ export default function register() {
                     <input
                       className="bg-white outline-none rounded-2xl w-80 pl-2"
                       type="number"
-                      name="age"
+                      name="birthday"
                       placeholder="Insert your age"
                     />
                   </div>
-                  <div class="bg-yellow-200 h-10 w-40 p-2 mt-5 flex items-center rounded-2xl">
+                  <div className="bg-yellow-200 h-10 w-40 p-2 mt-5 flex items-center rounded-2xl">
                     <WcIcon className="text-white" />
                     <select
-                      class="text-gray mr-3 pl-10 items-center rounded-2xl"
+                      className="text-gray mr-3 pl-10 items-center rounded-2xl"
                       id="grid-state"
                     >
                       <option>Male</option>
                       <option>Female</option>
                     </select>
-                    <div class="bg-white outline-none rounded-2xl w-80 pl-2"></div>
+                    <div className="bg-white outline-none rounded-2xl w-80 pl-2"></div>
                   </div>
                   <div className="bg-yellow-200 h-10 w-80 p-2 mt-5 flex items-center rounded-2xl">
                     <LockIcon className="text-white mr-3" />
