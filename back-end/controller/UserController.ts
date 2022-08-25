@@ -12,6 +12,27 @@ const getUsers = async (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
+const getUserByEmail = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { email } = req.body;
+  const user = await userServices.findUserByEmail(email);
+  res.json({
+    success: true,
+    data: {
+      email: user[0]?.email,
+      firstName: user[0]?.firstName,
+      lastName: user[0]?.lastName,
+      age: user[0]?.lastName,
+      birthday: user[0].birthday,
+      phoneNumber: user[0].phoneNumber,
+      sex: user[0].sex,
+    },
+  });
+};
+
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const { firstName, lastName, email, phoneNumber, birthday, sex, password } =
     req.body;
