@@ -37,8 +37,15 @@ export default function register() {
         password: password,
         confirmPassword: confirmPassword,
       })
-      .then((res) => console.log(res.status))
-      .catch((error) => console.log(error));
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 200) {
+          router.push("/main");
+        } else {
+          alert(`Something went wrong bro`);
+        }
+      })
+      .catch((error) => console.log(alert(`User already registered bro.`)));
   };
   return (
     <div className="flex items-center justify-center min-h-screen  bg-red-200">
