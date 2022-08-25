@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import bcryptjs from "bcryptjs";
-import * as userServices from "../services/UserServices";
-import { getErrorMessage } from "../util/errors.util";
+import * as userServices from "./user.service";
+import { getErrorMessage } from "../../util/errors.util";
 
 const getUsers = async (req: Request, res: Response, next: NextFunction) => {
   const allUsers = await userServices.findAllUsers();

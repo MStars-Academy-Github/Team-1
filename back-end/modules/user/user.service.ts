@@ -1,4 +1,4 @@
-import Users, { I_UserDocument } from "../model/users";
+import Users, { I_UserDocument } from "../../model/users";
 import { DocumentDefinition } from "mongoose";
 import bcryptjs from "bcryptjs";
 import jwt, { Secret, JwtPayload } from "jsonwebtoken";
