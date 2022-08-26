@@ -1,4 +1,4 @@
-import Users, { I_UserDocument } from "../../model/users";
+import Users, { I_UserDocument } from "./user.interfaces";
 import { DocumentDefinition } from "mongoose";
 import bcryptjs from "bcryptjs";
 import jwt, { Secret, JwtPayload } from "jsonwebtoken";
@@ -19,8 +19,8 @@ async function updateUser(
 
 async function findUserByEmail(
   email: String
-): Promise<DocumentDefinition<I_UserDocument>[]> {
-  return Users.find({ email });
+): Promise<DocumentDefinition<I_UserDocument> | null> {
+  return Users.findOne({ email });
 }
 
 async function findAllUsers(): Promise<DocumentDefinition<I_UserDocument>[]> {

@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Model } from "mongoose";
 const Schema = mongoose.Schema;
 
-export interface I_UserDocument extends mongoose.Document {
+export interface IUser {
   firstName: string;
   lastName: string;
   email: string;
@@ -11,6 +11,19 @@ export interface I_UserDocument extends mongoose.Document {
   password: string;
 }
 
+export interface I_UserDocument extends IUser, Document {
+  isPasswordMatch(password: string): Promise<boolean>;
+}
+export interface IUserModel extends Model<I_UserDocument> {
+  isEmailTaken(
+    email: string,
+    excludeUserId?: mongoose.Types.ObjectId
+  ): Promise<boolean>;
+  paginate(
+    filter: Record<string, any>,
+    options: Record<string, any>
+  ): Promise<QueryResult>;
+}
 const UsersSchema: mongoose.Schema<I_UserDocument> = new Schema({
   firstName: {
     type: String,
