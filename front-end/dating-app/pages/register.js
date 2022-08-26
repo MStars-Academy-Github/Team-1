@@ -6,6 +6,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import WcIcon from "@mui/icons-material/Wc";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import axios from "axios";
+
 export default function register() {
   const submit = (e) => {
     e.preventDefault();
