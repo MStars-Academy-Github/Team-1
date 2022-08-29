@@ -168,72 +168,99 @@ const ResponsiveAppBar = () => {
         <section className="img-slider">
           <Carousel fade>
             <Carousel.Item>
-              <img
-                className="d-block w-25"
-                src="/images/02.jpg"
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
+              <section className="card-section">
+                <div className="kado-badi">
+                  <Card
+                    style={{
+                      width: "296px",
+                      height: "395px",
+                      borderRadius: "10%",
+                    }}
+                    className="card-bud"
+                  >
+                    <Card.Img
+                      variant="center"
+                      src="/images/Megan.jpg"
+                      className="card-image"
+                    />
+                    <Card.Body className="information-section">
+                      <Card.Title>Hello, dear!</Card.Title>
+                      <Card.Text>
+                        Name : Jessica <br></br>
+                        Age: 26 <br></br>Interest: reading books <br></br>
+                        Seeking: handsome guy
+                      </Card.Text>
+                      <Button className="like-button">Like</Button>
+                      <Button className="love-button">Love</Button>
+                      <Button className="nope-button">Nope</Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </section>
             </Carousel.Item>
             <Carousel.Item>
-              <img
-                className="d-block w-25"
-                src="/images/03.jpg"
-                alt="Second slide"
-              />
-
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
+              <section className="card-section">
+                <div className="kado-badi">
+                  <Card
+                    style={{
+                      width: "296px",
+                      height: "395px",
+                      borderRadius: "10%",
+                    }}
+                    className="card-bud"
+                  >
+                    <Card.Img
+                      variant="center"
+                      src="/images/03.jpg"
+                      className="card-image"
+                    />
+                    <Card.Body className="information-section">
+                      <Card.Title>You are mine</Card.Title>
+                      <Card.Text>
+                        Name : Moneca <br></br>
+                        Age: 24 <br></br>Interest: dance, singing <br></br>
+                        Seeking: parthner for dancing
+                      </Card.Text>
+                      <Button className="like-button">Like</Button>
+                      <Button className="love-button">Love</Button>
+                      <Button className="nope-button">Nope</Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </section>
             </Carousel.Item>
             <Carousel.Item>
-              <img
-                className="d-block w-25"
-                src="/images/04.jpg"
-                alt="Third slide"
-              />
-
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
+              <section className="card-section">
+                <div className="kado-badi">
+                  <Card
+                    style={{
+                      width: "296px",
+                      height: "395px",
+                      borderRadius: "10%",
+                    }}
+                    className="card-bud"
+                  >
+                    <Card.Img
+                      variant="center"
+                      src="/images/01.jpg"
+                      className="card-image"
+                    />
+                    <Card.Body className="information-section">
+                      <Card.Title>Should we become friends?</Card.Title>
+                      <Card.Text>
+                        Name : Albania <br></br>
+                        Age: 27 <br></br>Interest: Play golf <br></br>
+                        Seeking: Let's play together
+                      </Card.Text>
+                      <Button className="like-button">Like</Button>
+                      <Button className="love-button">Love</Button>
+                      <Button className="nope-button">Nope</Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </section>
             </Carousel.Item>
           </Carousel>
-          export default CarouselFadeExample;
-        </section>
-        <section className="card-section">
-          <div className="kado-badi">
-            <Card
-              style={{ width: "296px", height: "395px", borderRadius: "10%" }}
-              className="card-bud"
-            >
-              <Card.Img
-                variant="center"
-                src="/images/Megan.jpg"
-                className="card-image"
-              />
-              <Card.Body className="information-section">
-                <Card.Title>Hello, dear!</Card.Title>
-                <Card.Text>
-                  Name : Jessica <br></br>
-                  Age: 26 <br></br>Interest: reading books <br></br>Seeking:
-                  handsome guy
-                </Card.Text>
-                <Button className="like-button">Like</Button>
-                <Button className="love-button">Love</Button>
-                <Button className="nope-button">Nope</Button>
-              </Card.Body>
-            </Card>
-          </div>
         </section>
       </div>
     </div>

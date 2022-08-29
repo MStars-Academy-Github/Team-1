@@ -133,6 +133,9 @@ a {
   padding-left: 43%;
   color: white;
 }
-.card-bud {
-}
+
 /* cardni ih biy togsgol */
+
+.carousel-indicators {
+  display: none !important;
+}
