@@ -1,4 +1,5 @@
 import mongoose, { Document, Model } from "mongoose";
+import { QueryResult } from "../paginate/paginate";
 const Schema = mongoose.Schema;
 
 export interface IUser {
@@ -14,6 +15,7 @@ export interface IUser {
 export interface I_UserDocument extends IUser, Document {
   isPasswordMatch(password: string): Promise<boolean>;
 }
+
 export interface IUserModel extends Model<I_UserDocument> {
   isEmailTaken(
     email: string,

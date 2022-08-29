@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
+import Link from "next/link";
 
 export default function index() {
   return (
@@ -45,12 +46,12 @@ export default function index() {
                   </label>
                 </div>
                 <div>
-                  <a
+                  <Link
                     href="/main"
                     className="border-2 border-pink-200 bg-pink-200 text-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-pink-200 mt-10"
                   >
                     Sign up
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -60,12 +61,12 @@ export default function index() {
             <h2 className="text-3xl font-bold mb-2">Hey, cutie!</h2>
             <div className="border-2 w-40 border-pink-400 inline-block mb-2"></div>
             <p className="mb-10">Come here and meet some girls and boys</p>
-            <a
+            <Link
               href="/register"
               className="border-2 border-pink-200 rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-pink-300"
             >
               Sign up
-            </a>
+            </Link>
           </div>
           {/* Log in section  */}
         </div>

@@ -4,6 +4,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import Link from "next/link";
 
 export default function register() {
   return (
@@ -86,12 +87,12 @@ export default function register() {
                 </div>
 
                 <div>
-                  <a
+                  <Link
                     href="#"
                     className="border-2 border-pink-200 bg-pink-200 text-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-pink-200 mt-10"
                   >
                     Submit
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
