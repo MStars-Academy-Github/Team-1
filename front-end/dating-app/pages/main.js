@@ -1,103 +1,269 @@
-import React from "react";
-import EmailIcon from "@mui/icons-material/Email";
-import LockIcon from "@mui/icons-material/Lock";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
+import Diversity2Icon from "@mui/icons-material/Diversity2";
+import Card from "react-bootstrap/Card";
+import Carousel from "react-bootstrap/Carousel";
 
-export default function register() {
+const pages = ["HOME", "ABOUT", "FAQ"];
+const settings = ["Profile", "Settings", "Logout"];
+
+const ResponsiveAppBar = () => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen  bg-red-200">
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <div className="bg-red-100 rounded-2xl shadow-2xl flex w-1/2 max-w-2xl">
-          <div className="w-full">
-            <button className="mt-2 outline rounded-lg bg-pink-200 px-3">
-              <a href="/">back to home</a>
-            </button>
-            <div className="py-10">
-              <h2 className="text-1xl font-bold text-gray-700">
-                Find your lover from here!
-              </h2>
+    <div className="mainContainer">
+      <div className="top-section">
+        <AppBar position="static" className="app-section">
+          <Container maxWidth="xl">
+            <Toolbar disableGutters>
+              <Diversity2Icon
+                sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+                className="text-white"
+              />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="/main"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".0.5rem",
+                  color: "black",
+                  textDecoration: "none",
+                }}
+              >
+                Dating App
+              </Typography>
 
-              <div className="border-2 w-10 border-pink-300 inline-block mt-10"></div>
-              <div className="flex flex-col items-center mt-10">
-                <div className="bg-yellow-200  w-80 p-2 flex items-center rounded-2xl mb-3">
-                  <DriveFileRenameOutlineIcon className="text-white mr-3" />
-                  <input
-                    className="bg-white outline-none rounded-2xl w-80 pl-2"
-                    type="name"
-                    name="name"
-                    placeholder="Write your First Name"
-                  />
-                </div>
-                <div className="bg-yellow-200  w-80 p-2 flex items-center rounded-2xl mb-10">
-                  <DriveFileRenameOutlineIcon className="text-white mr-3" />
-                  <input
-                    className="bg-white outline-none rounded-2xl w-80 pl-2"
-                    type="name"
-                    name="name"
-                    placeholder="Write your Last Name"
-                  />
-                </div>
-                <div className="bg-yellow-200  w-80 p-2 flex items-center rounded-2xl mb-5">
-                  <EmailIcon className="text-white mr-3" />
-                  <input
-                    className="bg-white outline-none rounded-2xl w-80 pl-2"
-                    type="email"
-                    name="email"
-                    placeholder="Write your Email here!"
-                  />
-                </div>
-                <div className="bg-yellow-200  w-80 p-2 flex items-center rounded-2xl mb-5">
-                  <LocalPhoneIcon className="text-white mr-3" />
-                  <input
-                    className="bg-white outline-none rounded-2xl w-80 pl-2"
-                    type="number"
-                    name="phone number"
-                    placeholder="Insert your phone number"
-                  />
-                </div>
-                <div className="bg-yellow-200  w-80 p-2 flex items-center rounded-2xl mb-10">
-                  <CalendarTodayIcon className="text-white mr-3" />
-                  <input
-                    className="bg-white outline-none rounded-2xl w-80 pl-2"
-                    type="date"
-                    name="date of birth"
-                    placeholder="Insert your date of birth"
-                  />
-                </div>
-                <div className="bg-yellow-200 h-10 w-80 p-2 mt-5 flex items-center rounded-2xl">
-                  <LockIcon className="text-white mr-3" />
-                  <input
-                    className="bg-white outline-none rounded-2xl w-80 pl-2"
-                    type="password"
-                    name="password"
-                    placeholder="create your password"
-                  />
-                </div>
-                <div className="bg-yellow-200 h-10 w-80 p-2 mt-5 flex items-center rounded-2xl">
-                  <LockIcon className="text-white mr-3" />
-                  <input
-                    className="bg-white outline-none rounded-2xl w-80 pl-2"
-                    type="password"
-                    name="password"
-                    placeholder="repeat password again"
-                  />
-                </div>
-
-                <div>
-                  <a
-                    href="#"
-                    className="border-2 border-pink-200 bg-pink-200 text-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-pink-200 mt-10"
+              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                  }}
+                >
+                  {pages.map((page) => (
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center">{page}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+              <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+              <Typography
+                variant="h5"
+                noWrap
+                component="a"
+                href=""
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "none" },
+                  flexGrow: 1,
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                LOfsa
+              </Typography>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                {pages.map((page) => (
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
                   >
-                    Submit
-                  </a>
+                    {page}
+                  </Button>
+                ))}
+              </Box>
+
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Chuluunsukh" src="./public/favicon.ico" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
+        <section className="img-slider">
+          <Carousel fade>
+            <Carousel.Item>
+              <section className="card-section">
+                <div className="kado-badi">
+                  <Card
+                    style={{
+                      width: "296px",
+                      height: "395px",
+                      borderRadius: "10%",
+                    }}
+                    className="card-bud"
+                  >
+                    <Card.Img
+                      variant="center"
+                      src="/images/Megan.jpg"
+                      className="card-image"
+                    />
+                    <Card.Body className="information-section">
+                      <Card.Title>Hello, dear!</Card.Title>
+                      <Card.Text>
+                        Name : Jessica <br></br>
+                        Age: 26 <br></br>Interest: reading books <br></br>
+                        Seeking: handsome guy
+                      </Card.Text>
+                      <Button className="like-button">Like</Button>
+                      <Button className="love-button">Love</Button>
+                      <Button className="nope-button">Nope</Button>
+                    </Card.Body>
+                  </Card>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+              </section>
+            </Carousel.Item>
+            <Carousel.Item>
+              <section className="card-section">
+                <div className="kado-badi">
+                  <Card
+                    style={{
+                      width: "296px",
+                      height: "395px",
+                      borderRadius: "10%",
+                    }}
+                    className="card-bud"
+                  >
+                    <Card.Img
+                      variant="center"
+                      src="/images/03.jpg"
+                      className="card-image"
+                    />
+                    <Card.Body className="information-section">
+                      <Card.Title>You are mine</Card.Title>
+                      <Card.Text>
+                        Name : Moneca <br></br>
+                        Age: 24 <br></br>Interest: dance, singing <br></br>
+                        Seeking: parthner for dancing
+                      </Card.Text>
+                      <Button className="like-button">Like</Button>
+                      <Button className="love-button">Love</Button>
+                      <Button className="nope-button">Nope</Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </section>
+            </Carousel.Item>
+            <Carousel.Item>
+              <section className="card-section">
+                <div className="kado-badi">
+                  <Card
+                    style={{
+                      width: "296px",
+                      height: "395px",
+                      borderRadius: "10%",
+                    }}
+                    className="card-bud"
+                  >
+                    <Card.Img
+                      variant="center"
+                      src="/images/01.jpg"
+                      className="card-image"
+                    />
+                    <Card.Body className="information-section">
+                      <Card.Title>Should we become friends?</Card.Title>
+                      <Card.Text>
+                        Name : Albania <br></br>
+                        Age: 27 <br></br>Interest: Play golf <br></br>
+                        Seeking: Let's play together
+                      </Card.Text>
+                      <Button className="like-button">Like</Button>
+                      <Button className="love-button">Love</Button>
+                      <Button className="nope-button">Nope</Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </section>
+            </Carousel.Item>
+          </Carousel>
+        </section>
+      </div>
     </div>
   );
-}
+};
+export default ResponsiveAppBar;
