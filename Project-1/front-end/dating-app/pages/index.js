@@ -4,8 +4,9 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-export default function index() {
+export default function Index() {
   const router = useRouter();
   const submitLogin = (e) => {
     e.preventDefault();
@@ -93,12 +94,12 @@ export default function index() {
               <p className="mb-10 text-black">
                 Come here and meet some girls and boys
               </p>
-              <a
+              <Link
                 href="/register"
                 className="border-2 bg-gradient-to-r from-cyan-200 to-blue-300 rounded-full px-12 py-2 inline-block font-semibold hover:bg-gradient-to-r from-pink-300 to-blue-300 hover:text-pink-500"
               >
                 Sign up
-              </a>
+              </Link>
             </div>
             {/* Log in section  */}
           </div>
