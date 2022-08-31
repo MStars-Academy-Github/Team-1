@@ -250,7 +250,7 @@ const ResponsiveAppBar = () => {
                       <Card.Text>
                         Name : Albania <br></br>
                         Age: 27 <br></br>Interest: Play golf <br></br>
-                        Seeking: Let's play together
+                        Seeking: Lets play together
                       </Card.Text>
                       <Button className="like-button">Like</Button>
                       <Button className="love-button">Love</Button>
