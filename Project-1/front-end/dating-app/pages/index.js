@@ -5,8 +5,11 @@ import LockIcon from "@mui/icons-material/Lock";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import dotenv from "dotenv";
+import useSWR from "swr";
 
 export default function Index() {
+  dotenv.config();
   const router = useRouter();
   const submitLogin = (e) => {
     e.preventDefault();
@@ -18,7 +21,7 @@ export default function Index() {
     console.log(password);
 
     axios
-      .post("http://localhost:4000/users/login", {
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/users/login`, {
         email: email,
         password: password,
       })
