@@ -42,8 +42,6 @@ export const createMedia = async (req: Request, res: Response) => {
       });
     }
   });
-
-  // res.json("craete media");
 };
 
 export const mediaById = async (req: Request, res: Response) => {
@@ -71,8 +69,8 @@ export const listByUser = async (req: Request, res: Response) => {
       data: media,
     });
   } catch (error) {
-    res.status(400).json({
-      error: error,
+    res.status(404).json({
+      error: "Could not retrieve media for the user",
     });
   }
 };
