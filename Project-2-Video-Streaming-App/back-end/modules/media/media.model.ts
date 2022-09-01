@@ -1,4 +1,4 @@
-import mongoose, { Types, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { IMediaDoc } from "./media.interfaces";
 import { User } from "../user";
 
@@ -31,7 +31,6 @@ const mediaSchema = new Schema<IMediaDoc>({
     type: Schema.Types.ObjectId,
     ref: User,
   },
-
   updated: {
     type: Date,
   },

@@ -1,4 +1,4 @@
-import { Model, Document, Schema } from "mongoose";
+import { Model, Document, Schema, Types } from "mongoose";
 // Media has
 // title
 // description
@@ -13,9 +13,12 @@ export interface IMedia {
   genre: string;
   views: number;
   postedBy: Schema.Types.ObjectId;
-  updated: Date;
-  created: Date;
 }
-export interface IMediaDoc extends IMedia, Document {}
+export interface IMediaDoc extends IMedia, DocumentWithTimestamp {}
 
 export interface IMediaModel extends Model<IMedia | null> {}
+
+interface DocumentWithTimestamp extends Document<Types.ObjectId> {
+  created: Date;
+  updated: Date;
+}
