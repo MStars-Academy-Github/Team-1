@@ -54,7 +54,7 @@ export const mediaById = async (req: Request, res: Response) => {
       .exec();
     console.log(media);
     return res.json({
-      data: "media by id",
+      data: media,
     });
   } catch (error) {
     return res.status(404).json({
