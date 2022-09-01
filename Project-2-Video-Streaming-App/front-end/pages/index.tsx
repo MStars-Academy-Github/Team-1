@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import ReactPlayer from "react-player";
 
 const Home: NextPage = () => {
   return (
