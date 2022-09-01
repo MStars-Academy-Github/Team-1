@@ -4,10 +4,12 @@ import TypoGraphy from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { createTheme } from "@mui/material/styles";
 
-const handleChange = (video: string) => {
+const handleChange = (video: string): void => {
   console.log("test");
 };
+
 const MediaUpload = () => {
   const [values, setValues] = useState({
     title: "",
@@ -24,7 +26,11 @@ const MediaUpload = () => {
     <Card className="test">
       <CardContent>
         <TypoGraphy>New Video</TypoGraphy>
-        <input accept="video/*" type={"file"}></input>
+        <input
+          accept="video/*"
+          type={"file"}
+          onChange={() => handleChange("video")}
+        ></input>
         <label htmlFor="icon-button-file">
           <Button color="secondary">Upload</Button>
         </label>
@@ -33,7 +39,7 @@ const MediaUpload = () => {
           id="title"
           label="Title"
           value={values.title}
-          onChange={handleChange("title")}
+          onChange={() => handleChange("title")}
           margin="normal"
         ></TextField>
       </CardContent>
