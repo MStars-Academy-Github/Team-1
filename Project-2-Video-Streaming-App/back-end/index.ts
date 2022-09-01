@@ -14,8 +14,7 @@ app.use("/v1", routes);
 let server: any;
 mongoose.connect(ATLAS_MONGO_SERVER).then(() => {
   console.log("Connected to the MongoDB");
-});
-
-app.listen(PORT, () => {
-  console.log("server is running on" + PORT);
+  server = app.listen(PORT, () => {
+    console.log("server is running on : " + PORT);
+  });
 });
