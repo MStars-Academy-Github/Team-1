@@ -1,4 +1,4 @@
-import mongoose, { Model, Document, Types, Schema } from "mongoose";
+import { Model, Document, Schema } from "mongoose";
 // Media has
 // title
 // description
@@ -18,4 +18,4 @@ export interface IMedia {
 }
 export interface IMediaDoc extends IMedia, Document {}
 
-export interface IUserModel extends Model<IMedia | null> {}
+export interface IMediaModel extends Model<IMedia | null> {}
