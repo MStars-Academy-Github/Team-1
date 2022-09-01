@@ -9,7 +9,6 @@ const Home: NextPage = () => {
           <h1 className="text-xl-3 rounded-md bg-blue-600">
             My anime player yahoo!
           </h1>
-          {/* <ReactPlayer url="https://youtu.be/vqTwqKyJdWA" /> */}
         </div>
       </main>
 
