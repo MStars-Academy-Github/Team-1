@@ -28,9 +28,10 @@ const mediaSchema = new Schema<IMediaDoc>({
     default: 0,
   },
   postedBy: {
-    type: Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: User,
   },
+
   updated: {
     type: Date,
   },
