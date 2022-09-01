@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { IUserDoc } from "../user/user.interfaces";
 import { getUserByEmail } from "../user/user.services";
 

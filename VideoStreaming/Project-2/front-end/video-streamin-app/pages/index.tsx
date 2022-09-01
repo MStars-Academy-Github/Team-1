@@ -1,26 +1,68 @@
 import type { NextPage } from "next";
-import ReactPlayer from "react-player";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import BasicModal from "./login";
 
 const Home: NextPage = () => {
   return (
     <div>
-      <main>
-        <div>
-          <h1 className="text-xl-3 rounded-md bg-blue-600">
-            My anime player yahoo!
-          </h1>
-        </div>
-      </main>
+      <div>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static" className="nav-bar">
+            <Toolbar>
+              <IconButton
+                className="menu-button"
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ flexGrow: 1 }}
+                className="head-line"
+              >
+                Enjoy with us
+              </Typography>
+              <Button className="signUp-button" variant="contained">
+                Sign in
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </Box>
+      </div>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Chuka
-        </a>
-      </footer>
+      <div>
+        <div className="background-area">
+          <ul className="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      {/* login form section head */}
+
+      <BasicModal />
+
+      {/* login form section end */}
     </div>
   );
 };
