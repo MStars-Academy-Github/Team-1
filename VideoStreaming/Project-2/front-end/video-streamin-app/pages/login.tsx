@@ -1,9 +1,11 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+
 import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
+import { Link, TextField } from "@mui/material";
+import { Router, useRouter } from "next/router";
+import axios from "axios";
 
 const style = {
   position: "absolute" as "absolute",
@@ -24,46 +26,55 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button className="login-button" onClick={handleOpen}>
-        LOGIN HERE
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <div className="register-form">
-            <h1 id="parent-modal-title">Watch & enjoy</h1>
-            <span className="register-second">Enter you email</span>
-            <TextField
-              required
-              id="filled-required"
-              label="Required"
-              style={{
-                height: "100px",
-                outline: "none",
-              }}
-              placeholder="Enter your email"
-              variant="filled"
-            />
-            <span className="register-second">Enter you password</span>
-            <TextField
-              id="filled-password-input"
-              label="Password"
-              type="password"
-              autoComplete="Enter your password"
-              variant="filled"
-            />
-            <h2 className="register-section">
-              Don't have an account?{" "}
-              <Button className="reg-button">Register here</Button>
-            </h2>
-            <Button className="submit-button">LOGIN</Button>
-          </div>
-        </Box>
-      </Modal>
+      <form>
+        <Button className="login-button" onClick={handleOpen}>
+          LOGIN HERE
+        </Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <div className="register-form">
+              <h1 id="parent-modal-title">Watch & enjoy</h1>
+              <span className="register-second">Enter you email</span>
+              <TextField
+                required
+                id="filled-required"
+                label="Required"
+                style={{
+                  height: "100px",
+                  outline: "none",
+                }}
+                placeholder="Enter your email"
+                variant="filled"
+              />
+              <span className="register-second">Enter you password</span>
+              <TextField
+                id="filled-password-input"
+                label="Password"
+                type="password"
+                autoComplete="Enter your password"
+                variant="filled"
+              />
+              <div className="register-section">
+                <h5>Don't have an account?</h5>
+                <a href="/register" className="register-but">
+                  <Button className="reg-button">Register here</Button>
+                </a>
+              </div>
+              <Link href="/main" className="submit-button">
+                LOGIN
+              </Link>
+            </div>
+          </Box>
+        </Modal>
+      </form>
     </div>
   );
+}
+function setRegister(arg0: boolean) {
+  throw new Error("Function not implemented.");
 }

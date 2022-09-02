@@ -35,7 +35,7 @@ const Home: NextPage = () => {
                 Enjoy with us
               </Typography>
               <Button className="signUp-button" variant="contained">
-                Sign in
+                contact us
               </Button>
             </Toolbar>
           </AppBar>
