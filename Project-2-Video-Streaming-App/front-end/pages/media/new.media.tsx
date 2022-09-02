@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 import { CardActions, Icon } from "@material-ui/core";
 import { Blob } from "buffer";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NewMedia = () => {
+  const router = useRouter();
   const axios = require("axios").default;
   const classes = useStyles();
   const [values, setValues] = useState({
@@ -48,10 +50,13 @@ const NewMedia = () => {
     video: Blob,
     description: "",
     genre: "",
-    redirect: "false",
+    redirect: false,
     error: "",
     mediaId: "",
   });
+  useEffect(() => {
+    console.log("a");
+  }, [router]);
 
   const handleChange = (name: any) => (event: any) => {
     const value = name === "video" ? event.target.files[0] : event.target.value;
@@ -68,93 +73,103 @@ const NewMedia = () => {
 
     axios({
       method: "post",
-      url: "http://localhost:4000/v1/media/upload",
+      url: `${process.env.NEXT_PUBLIC_SERVER_URL}/v1/media/upload`,
       data: mediaData,
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((data: any) => {
-        console.log(data);
+        setValues({
+          ...values,
+          error: "",
+          mediaId: data?.data._id,
+          redirect: true,
+        });
       })
       .catch((error: any) => {
         console.log(error);
+        setValues({ ...values, error: error });
       });
   };
 
-  return (
-    <Card className={classes.card}>
-      <CardContent>
-        <TypoGraphy
-          typeof="headline"
-          component={"h1"}
-          className={classes.title}
-        >
-          New Video
-        </TypoGraphy>
-        <input
-          accept="video/*"
-          type="file"
-          onChange={handleChange("video")}
-          className={classes.input}
-          id="icon-button-file"
-        />
-        <label htmlFor="icon-button-file">
-          <Button color="secondary" variant="contained" component="span">
-            Upload
-          </Button>
-        </label>
-        <span className={classes.filename}>
-          {values.video ? values.video?.name : ""}
-        </span>
-        <br />
-        <TextField
-          id="title"
-          label="Title"
-          value={values.title}
-          className={classes.textField}
-          onChange={handleChange("title")}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          label="Description"
-          multiline
-          minRows="2"
-          id="description"
-          className={classes.textField}
-          value={values.description}
-          onChange={handleChange("description")}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="genre"
-          label="Genre"
-          value={values.genre}
-          className={classes.textField}
-          onChange={handleChange("genre")}
-          margin="normal"
-        />
-        <br />
-        {values.error && (
-          <TypoGraphy component={"p"} color="error">
-            <Icon color="error" className={classes.error}>
-              error
-            </Icon>
+  if (values.redirect) {
+    router.push("/media/list.media");
+  } else {
+    return (
+      <Card className={classes.card}>
+        <CardContent>
+          <TypoGraphy
+            typeof="headline"
+            component={"h1"}
+            className={classes.title}
+          >
+            New Video
           </TypoGraphy>
-        )}
-      </CardContent>
-      <CardActions>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={clickSubmit}
-          className={classes.submit}
-        >
-          Submit
-        </Button>
-      </CardActions>
-    </Card>
-  );
+          <input
+            accept="video/*"
+            type="file"
+            onChange={handleChange("video")}
+            className={classes.input}
+            id="icon-button-file"
+          />
+          <label htmlFor="icon-button-file">
+            <Button color="secondary" variant="contained" component="span">
+              Upload
+            </Button>
+          </label>
+          <span className={classes.filename}>
+            {values.video ? values.video?.name : ""}
+          </span>
+          <br />
+          <TextField
+            id="title"
+            label="Title"
+            value={values.title}
+            className={classes.textField}
+            onChange={handleChange("title")}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            label="Description"
+            multiline
+            minRows="2"
+            id="description"
+            className={classes.textField}
+            value={values.description}
+            onChange={handleChange("description")}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="genre"
+            label="Genre"
+            value={values.genre}
+            className={classes.textField}
+            onChange={handleChange("genre")}
+            margin="normal"
+          />
+          <br />
+          {values.error && (
+            <TypoGraphy component={"p"} color="error">
+              <Icon color="error" className={classes.error}>
+                error
+              </Icon>
+            </TypoGraphy>
+          )}
+        </CardContent>
+        <CardActions>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={clickSubmit}
+            className={classes.submit}
+          >
+            Submit
+          </Button>
+        </CardActions>
+      </Card>
+    );
+  }
 };
 
 export default NewMedia;
