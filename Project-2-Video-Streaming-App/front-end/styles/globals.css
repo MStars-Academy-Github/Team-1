@@ -99,7 +99,7 @@ button {
   margin-right: 2%;
   border-radius: 20px;
   font-size: 1rem;
-  width: 6%;
+  width: 8%;
   font-weight: 500;
 }
 .signUp-button:hover {
@@ -319,5 +319,25 @@ button {
   border-radius: 10px;
   transform: translateX(10) translateX(100);
   transition: 0.5s;
+}
+.register-section {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+.register-but {
+  padding-right: 3%;
+  margin-top: -3%;
+  text-decoration: underline;
+}
+.reg-button {
+  width: 100%;
+  text-transform: capitalize;
+  display: flex;
+  word-break: keep-all;
+}
+.reg-button:hover {
+  color: black;
+  background-color: #fff;
 }
 /* form section ended here */
