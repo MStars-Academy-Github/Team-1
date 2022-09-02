@@ -20,13 +20,10 @@ export const createMedia = async (req: Request, res: Response) => {
       });
     }
     const user = await User.findById("630ee08f072342f9493c57fe");
-    console.log(user);
-    console.log(fields);
     let media = new Media(fields);
-    console.log(media);
     media.postedBy = user?.id;
     const file = files["media"];
-    console.log(file?.filepath);
+
     if (file) {
       let writeStream = gridfs.openUploadStream(media._id.toString(), {
         contentType: "binary/octet-stream",
@@ -60,6 +57,7 @@ export const mediaById = async (req: Request, res: Response) => {
     });
   }
 };
+
 export const listByUser = async (req: Request, res: Response) => {
   try {
     const { userId } = req.params;
