@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 import { CardActions, Icon } from "@material-ui/core";
-import { Blob } from "buffer";
 import { useRouter } from "next/router";
+import { any } from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -47,7 +47,7 @@ const NewMedia = () => {
   const classes = useStyles();
   const [values, setValues] = useState({
     title: "",
-    video: Blob,
+    video: any,
     description: "",
     genre: "",
     redirect: false,
@@ -69,7 +69,6 @@ const NewMedia = () => {
     values.video && mediaData.append("media", values.video as any);
     values.description && mediaData.append("description", values.description);
     values.genre && mediaData.append("genre", values.genre);
-    console.log(mediaData);
 
     axios({
       method: "post",
@@ -173,11 +172,3 @@ const NewMedia = () => {
 };
 
 export default NewMedia;
-function axios(arg0: {
-  method: string;
-  url: string;
-  data: any;
-  headers: { "Content-Type": string };
-}) {
-  throw new Error("Function not implemented.");
-}

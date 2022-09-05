@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const create = async (params: any, media: any) => {
   try {
     let response = await fetch(
@@ -10,8 +12,18 @@ export const create = async (params: any, media: any) => {
         body: media,
       }
     );
-    const result: JSON = await response.json();
-    console.log(result);
+    return await response.json();
+  } catch (error) {
+    return error;
+  }
+};
+
+export const list = async (params: any): Promise<any> => {
+  try {
+    const result = await axios.get(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/v1/media/video/by/${params.userId}`
+    );
+    return result.data.data;
   } catch (error) {
     console.log(error);
   }
