@@ -1,7 +1,6 @@
 import { ImageList, makeStyles, ImageListItem } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import ReactPlayer from "react-player";
 import { list } from "../api/api.media";
 
 interface Media {
@@ -31,7 +30,6 @@ const MediaList = () => {
     (async () => {
       const result = await list({ userId: "630ee08f072342f9493c57fe" });
       setVideos(result);
-      console.log(videos);
     })();
   }, []);
   return (

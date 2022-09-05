@@ -52,8 +52,6 @@ export const mediaById = async (req: Request, res: Response) => {
       .toArray();
     let file = files[0];
 
-    console.log(files);
-    console.log("files");
     res.header("Content-Length", file.length.toString());
     res.header("Content-Type", file.contentType);
 
@@ -76,7 +74,6 @@ export const listByUser = async (req: Request, res: Response) => {
   try {
     const { userId } = req.params;
     let media = await Media.find({ postedBy: userId });
-    console.log(media);
     res.status(200).json({
       data: media,
     });

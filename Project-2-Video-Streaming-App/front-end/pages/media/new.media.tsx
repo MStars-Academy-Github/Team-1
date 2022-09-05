@@ -54,9 +54,7 @@ const NewMedia = () => {
     error: "",
     mediaId: "",
   });
-  useEffect(() => {
-    console.log("a");
-  }, [router]);
+  useEffect(() => {}, [router]);
 
   const handleChange = (name: any) => (event: any) => {
     const value = name === "video" ? event.target.files[0] : event.target.value;
@@ -85,7 +83,6 @@ const NewMedia = () => {
         });
       })
       .catch((error: any) => {
-        console.log(error);
         setValues({ ...values, error: error });
       });
   };

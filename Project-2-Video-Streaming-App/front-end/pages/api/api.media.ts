@@ -3,7 +3,7 @@ import axios from "axios";
 export const create = async (params: any, media: any) => {
   try {
     let response = await fetch(
-      "http://localhost:4000/v1/media/upload" + params.userId,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}v1/media/upload/${params.userId}`,
       {
         method: "POST",
         headers: {
@@ -25,6 +25,6 @@ export const list = async (params: any): Promise<any> => {
     );
     return result.data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
