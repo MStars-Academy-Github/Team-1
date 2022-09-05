@@ -47,9 +47,21 @@ export const mediaById = async (req: Request, res: Response) => {
     let media = await Media.findById(mediaId)
       .populate("postedBy", "_id firstName")
       .exec();
-    console.log(media);
-    return res.json({
-      data: media,
+    let files = await gridfs
+      .find({ filename: media?._id.toString() })
+      .toArray();
+    let file = files[0];
+
+    res.header("Content-Length", file.length.toString());
+    res.header("Content-Type", file.contentType);
+
+    let downloadStream = gridfs.openDownloadStream(file._id);
+    downloadStream.pipe(res);
+    downloadStream.on("error", () => {
+      res.sendStatus(404);
+    });
+    downloadStream.on("end", () => {
+      res.end();
     });
   } catch (error) {
     return res.status(404).json({
@@ -62,7 +74,6 @@ export const listByUser = async (req: Request, res: Response) => {
   try {
     const { userId } = req.params;
     let media = await Media.find({ postedBy: userId });
-    console.log(media);
     res.status(200).json({
       data: media,
     });
