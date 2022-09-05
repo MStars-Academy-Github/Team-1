@@ -1,16 +1,9 @@
-import type { NextPage } from "next";
-<<<<<<< HEAD:Project-2-Video-Streaming-App/front-end/pages/index.tsx
-=======
-import * as React from "react";
+import Button from "@material-ui/core/Button";
+import { IconButton, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import BasicModal from "./login";
->>>>>>> dea4729 (feat: index added):VideoStreaming/Project-2/front-end/video-streamin-app/pages/index.tsx
+import type { NextPage } from "next";
+import { Toolbar } from "@material-ui/core";
 
 const Home: NextPage = () => {
   return (
@@ -27,7 +20,7 @@ const Home: NextPage = () => {
                 aria-label="menu"
                 sx={{ mr: 2 }}
               >
-                <MenuIcon />
+                {/* <MenuIcon /> */}
               </IconButton>
               <Typography
                 variant="h6"
