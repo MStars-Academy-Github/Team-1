@@ -27,8 +27,9 @@ export default function BasicModal() {
   return (
     <div>
       <form>
-        <Button className="login-button" onClick={handleOpen}>
-          LOGIN HERE
+        <Button className="liquid-login-button" onClick={handleOpen}>
+          <span className="liq-span"></span>
+          <div className="liq-but">LOGIN HERE</div>
         </Button>
         <Modal
           open={open}
@@ -36,7 +37,7 @@ export default function BasicModal() {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
+          <Box sx={style} className="login-form-body">
             <div className="register-form">
               <h1 id="parent-modal-title">Watch & enjoy</h1>
               <span className="register-second">Enter you email</span>
