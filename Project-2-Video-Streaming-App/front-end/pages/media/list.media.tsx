@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
     )}px `,
     width: "100%",
   },
+  tileTitle: {
+    fontSize: "1.1rem",
+    marginBottom: "5px",
+    color: "rgb(193,173, 144)",
+    display: "block",
+  },
 }));
 
 const MediaList = () => {
@@ -71,7 +77,11 @@ const MediaList = () => {
                 controls={true}
               />
               <br />
-              <ImageListItemBar title={item.title} subtitle={item.title}>
+              <ImageListItemBar
+                className={classes.tileTitle}
+                title={item.title}
+                subtitle={item.title}
+              >
                 <IconButton area-label={`info about ${item.title}`}>
                   <InfoIcon></InfoIcon>
                 </IconButton>
