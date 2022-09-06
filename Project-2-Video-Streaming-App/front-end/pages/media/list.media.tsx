@@ -62,19 +62,22 @@ const MediaList = () => {
           <ListSubheader component="div">Video image</ListSubheader>
         </ImageListItem>
         {videos.map((item: Media) => (
-          <ImageListItem key={item._id} cols={1} rows={1}>
-            <ReactPlayer
-              url={`${process.env.NEXT_PUBLIC_SERVER_URL}/v1/media/video/${item._id}`}
-              width="100%"
-              height={"inherit"}
-              controls={true}
-            />
-            <ImageListItemBar title={item.title} subtitle={item.title}>
-              <IconButton area-label={`info about ${item.title}`}>
-                <InfoIcon></InfoIcon>
-              </IconButton>
-            </ImageListItemBar>
-          </ImageListItem>
+          <>
+            <ImageListItem key={item._id} cols={1} rows={1}>
+              <ReactPlayer
+                url={`${process.env.NEXT_PUBLIC_SERVER_URL}/v1/media/video/${item._id}`}
+                width="100%"
+                height={"inherit"}
+                controls={true}
+              />
+              <br />
+              <ImageListItemBar title={item.title} subtitle={item.title}>
+                <IconButton area-label={`info about ${item.title}`}>
+                  <InfoIcon></InfoIcon>
+                </IconButton>
+              </ImageListItemBar>
+            </ImageListItem>
+          </>
         ))}
       </ImageList>
     </div>
