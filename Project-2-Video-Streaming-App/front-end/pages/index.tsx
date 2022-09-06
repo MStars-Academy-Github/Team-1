@@ -4,6 +4,8 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import type { NextPage } from "next";
 import { Toolbar } from "@material-ui/core";
+import BasicModal from "./login";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +22,7 @@ const Home: NextPage = () => {
                 aria-label="menu"
                 sx={{ mr: 2 }}
               >
-                {/* <MenuIcon /> */}
+                <MenuIcon />
               </IconButton>
               <Typography
                 variant="h6"
@@ -30,9 +32,7 @@ const Home: NextPage = () => {
               >
                 Enjoy with us
               </Typography>
-              <Button className="signUp-button" variant="contained">
-                contact us
-              </Button>
+              <Button className="contact-button">contact us</Button>
             </Toolbar>
           </AppBar>
         </Box>
@@ -54,11 +54,9 @@ const Home: NextPage = () => {
           </ul>
         </div>
       </div>
-      {/* login form section head */}
-
-      <BasicModal />
-
-      {/* login form section end */}
+      <div>
+        <BasicModal />
+      </div>
     </div>
   );
 };

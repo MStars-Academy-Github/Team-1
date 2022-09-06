@@ -95,20 +95,21 @@ button {
 
   background-color: rgba(255, 255, 255, 0.15);
 }
-.signUp-button {
-  margin-right: 2%;
-  border-radius: 20px;
+.contact-button {
+  border: 1px solid white !important;
+  margin-right: 2% !important;
+  border-radius: 20px !important;
   font-size: 1rem;
   width: 8%;
   font-weight: 500;
 }
-.signUp-button:hover {
-  margin-right: 2%;
+.contact-button:hover {
+  margin-right: 1%;
   transition: 0.1s, opacity 0.1s;
   opacity: 1;
   border-radius: 20px;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 300;
   background-image: linear-gradient(160deg, #6480a5 0%, #1fbfd4 100%);
 }
 .head-line {
@@ -260,16 +261,20 @@ button {
 
 /* form section head begin here */
 .login-button {
-  color: aliceblue;
-  background-color: linear-gradient(#acb0c3 0%, #c850c0 46%, #ffcc70 100%);
-  position: absolute;
-  margin-top: 24%;
-  width: 150px;
-  left: 48%;
-  border: 1px solid rgba(155, 255, 255, 0.3);
-  border-radius: 10px;
-  transform: translateX(10) translateX(100);
-  transition: 0.5s;
+  color: aliceblue !important;
+  background-color: linear-gradient(
+    #acb0c3 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  ) !important;
+  position: absolute !important;
+  margin-top: 24% !important;
+  width: 150px !important;
+  left: 48% !important;
+  border: 1px solid rgba(155, 255, 255, 0.3) !important;
+  border-radius: 10px !important;
+  transform: translateX(10) translateX(100) !important;
+  transition: 0.5s !important;
 }
 .register-button:hover {
   transform: translateX(20) translateX(200);
@@ -310,11 +315,8 @@ button {
   font-size: 1rem;
 }
 .submit-button {
-  color: rgb(28, 33, 36);
-  margin-top: 10%;
-  left: 28%;
-  background-image: linear-gradient(#bcc7f7 0%, #f5d7cc 46%, #f6e2c1 100%);
-  width: 150px;
+  color: black;
+  background-image: linear-gradient(#bcc7f7 0%, #f5d7cc 46%, #d5c1f6 100%);
   border: 1px solid rgb(87, 87, 87);
   border-radius: 10px;
   transform: translateX(10) translateX(100);
@@ -338,6 +340,6 @@ button {
 }
 .reg-button:hover {
   color: black;
-  background-color: #fff;
+  background-color: #fff !important;
 }
 /* form section ended here */

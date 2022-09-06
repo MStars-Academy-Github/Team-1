@@ -75,6 +75,3 @@ export default function BasicModal() {
     </div>
   );
 }
-function setRegister(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}
