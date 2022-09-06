@@ -48,6 +48,17 @@ const useStyles = makeStyles((theme) => ({
     color: "rgb(193,173, 144)",
     display: "block",
   },
+  tileBar: {
+    backgroundColor: "rgba(0,0,0,0.72",
+    textAlign: "left",
+    height: "55px",
+  },
+  tileGenre: {
+    float: "right",
+    color: "rgba(193,182,164)",
+    marginRight: "8px",
+    marginLeft: "15px",
+  },
 }));
 
 const MediaList = () => {
@@ -76,11 +87,18 @@ const MediaList = () => {
                 height={"inherit"}
                 controls={true}
               />
-              <br />
               <ImageListItemBar
-                className={classes.tileTitle}
+                className={classes.tileBar}
                 title={item.title}
-                subtitle={item.title}
+                subtitle={
+                  <span>
+                    <span>{item.views}</span>
+                    <span className={classes.tileGenre}>
+                      <em>{item.genre}</em>
+                    </span>
+                  </span>
+                }
+                position="below"
               >
                 <IconButton area-label={`info about ${item.title}`}>
                   <InfoIcon></InfoIcon>
