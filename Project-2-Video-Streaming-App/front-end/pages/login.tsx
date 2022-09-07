@@ -36,7 +36,7 @@ export default function BasicModal() {
     axios
       .post("http://localhost:4000/v1/auth/login", { data })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.error(err);
