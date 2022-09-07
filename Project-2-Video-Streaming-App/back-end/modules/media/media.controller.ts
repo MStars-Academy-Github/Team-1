@@ -41,6 +41,22 @@ export const createMedia = async (req: Request, res: Response) => {
   });
 };
 
+export const mediaInfoById = async (req: Request, res: Response) => {
+  const { mediaId } = req.params;
+  try {
+    let media = await Media.findById(mediaId)
+      .populate("postedBy", "_id firstName")
+      .exec();
+    return res.status(200).json({
+      data: media,
+    });
+  } catch (error) {
+    return res.status(404).json({
+      error: "Could not retrieve media file",
+    });
+  }
+};
+
 export const mediaById = async (req: Request, res: Response) => {
   const { mediaId } = req.params;
   try {
