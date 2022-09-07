@@ -6,8 +6,8 @@ export const loginUser = async (req: Request, res: Response) => {
   console.log(req.body);
   const { email, password } = req.body.data;
   const user = await authService.loginUser(email, password);
-  console.log(user);
+
   const tokens = await tokenService.generateAuthToken(user);
-  console.log(tokens);
+
   res.send({ user, tokens });
 };
