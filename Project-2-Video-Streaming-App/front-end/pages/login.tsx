@@ -37,6 +37,7 @@ export default function BasicModal() {
       .post("http://localhost:4000/v1/auth/login", { data })
       .then((res) => {
         console.log(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
       })
       .catch((err) => {
         console.error(err);
