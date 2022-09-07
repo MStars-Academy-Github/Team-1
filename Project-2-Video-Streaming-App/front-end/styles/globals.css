@@ -259,13 +259,9 @@ button {
 }
 /* background section ended here */
 
-/* liquid button begin*/
-
-/* liquid button end */
-
 /* form section head begin here */
 .liquid-login-button {
-  /* color: aliceblue !important;
+  color: aliceblue !important;
   background-color: linear-gradient(
     #acb0c3 0%,
     #c850c0 46%,
@@ -278,43 +274,10 @@ button {
   border: 1px solid rgba(155, 255, 255, 0.3) !important;
   border-radius: 10px !important;
   transform: translateX(10) translateX(100) !important;
-  transition: 0.5s !important; */
-  position: absolute !important;
-  padding: 20px 50px !important;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
-  width: 200px !important;
-  overflow: hidden !important;
-  border-radius: 40px !important;
-}
-.liq-span {
-  position: absolute !important;
-  color: #fff !important;
-  font-size: 20px !important;
-  letter-spacing: 8px !important;
-  z-index: 1 !important;
-}
-.liq-but {
-  position: absolute !important;
-  top: -80px !important;
-  left: 0 !important;
-  width: 200px !important;
-  height: 200px !important;
-  background-color: #4973ff !important;
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5) !important;
   transition: 0.5s !important;
 }
-.liq-but:after,
-.liq-but:after {
-  content: "";
-  width: 200% !important;
-  height: 200% !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 50% !important;
-  transform: translate(-50%, -75%) !important;
-  background: #000 !important;
-}
+
+/* liguid button ends here */
 .register-button:hover {
   transform: translateX(20) translateX(200);
   transition: 0.5s;
@@ -469,3 +432,15 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.11);
 }
 /* video editing section ends here */
+
+/* REGISTER-container-section begins here */
+.register-container {
+  margin-top: 5%;
+  width: 40%;
+}
+.register-header {
+  font-size: 25px;
+  margin-left: 26%;
+  margin-bottom: 5%;
+}
+/* REGISTER-container-section ENDS here*/
