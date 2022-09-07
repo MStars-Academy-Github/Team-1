@@ -72,6 +72,7 @@ const MediaList = () => {
       setVideos(result);
     })();
   }, []);
+
   return (
     <div className={classes.root}>
       <ImageList className={classes.imageList} cols={2}>
