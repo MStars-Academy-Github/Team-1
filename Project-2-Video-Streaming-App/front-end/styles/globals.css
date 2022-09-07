@@ -30,7 +30,7 @@ a {
 }
 @layer base {
   body {
-    @apply h-screen overflow-hidden bg-gradient-to-br from-[#5447e9] to-[rgb(67,96,228)];
+    @apply h-screen overflow-hidden bg-gradient-to-br from-[#dcdbe5] to-[rgb(226,227,232)];
   }
   nav {
     @apply absolute top-0 left-0 bottom-0 w-[300px];
@@ -92,8 +92,8 @@ button {
   margin-top: 0;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
-
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #8bc6ec;
+  background-image: linear-gradient(180deg, #8bc6ec 0%, #827fdc 100%);
 }
 .contact-button {
   border: 1px solid white !important;
@@ -259,9 +259,13 @@ button {
 }
 /* background section ended here */
 
+/* liquid button begin*/
+
+/* liquid button end */
+
 /* form section head begin here */
-.login-button {
-  color: aliceblue !important;
+.liquid-login-button {
+  /* color: aliceblue !important;
   background-color: linear-gradient(
     #acb0c3 0%,
     #c850c0 46%,
@@ -274,7 +278,42 @@ button {
   border: 1px solid rgba(155, 255, 255, 0.3) !important;
   border-radius: 10px !important;
   transform: translateX(10) translateX(100) !important;
+  transition: 0.5s !important; */
+  position: absolute !important;
+  padding: 20px 50px !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  width: 200px !important;
+  overflow: hidden !important;
+  border-radius: 40px !important;
+}
+.liq-span {
+  position: absolute !important;
+  color: #fff !important;
+  font-size: 20px !important;
+  letter-spacing: 8px !important;
+  z-index: 1 !important;
+}
+.liq-but {
+  position: absolute !important;
+  top: -80px !important;
+  left: 0 !important;
+  width: 200px !important;
+  height: 200px !important;
+  background-color: #4973ff !important;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5) !important;
   transition: 0.5s !important;
+}
+.liq-but:after,
+.liq-but:after {
+  content: "";
+  width: 200% !important;
+  height: 200% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translate(-50%, -75%) !important;
+  background: #000 !important;
 }
 .register-button:hover {
   transform: translateX(20) translateX(200);
@@ -315,22 +354,27 @@ button {
   font-size: 1rem;
 }
 .submit-button {
-  color: black;
-  background-image: linear-gradient(#bcc7f7 0%, #f5d7cc 46%, #d5c1f6 100%);
-  border: 1px solid rgb(87, 87, 87);
+  margin-left: 40% !important;
+  border: 1px solid white;
+  padding: 5px 20px 5px 20px;
   border-radius: 10px;
-  transform: translateX(10) translateX(100);
-  transition: 0.5s;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.23);
 }
 .register-section {
   margin-top: 10%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 .register-but {
   padding-right: 3%;
   margin-top: -3%;
   text-decoration: underline;
+}
+.MuiButton-textPrimary {
+  color: white !important;
 }
 .reg-button {
   width: 100%;
@@ -339,7 +383,89 @@ button {
   word-break: keep-all;
 }
 .reg-button:hover {
-  color: black;
-  background-color: #fff !important;
+  color: blue !important;
+  background: rgba(255, 255, 255, 0.23);
 }
 /* form section ended here */
+
+/* list media section begins */
+.list-search-field {
+  border: 1px solid #80d0c7;
+  border-radius: 10px;
+  width: 30%;
+  left: 20%;
+}
+
+.box-section {
+  background-color: black !important;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+.add-media-button {
+  width: 130px !important;
+  color: #fff !important;
+  word-wrap: unset !important;
+  text-transform: uppercase !important;
+  font-size: 15px !important;
+}
+.add-media-button:hover {
+  width: 130px !important;
+  background-color: #66b4c5 !important;
+  color: #fff !important;
+  word-wrap: unset !important;
+  text-transform: uppercase !important;
+  font-size: 15px !important;
+}
+
+.nav-profile-text {
+  text-transform: uppercase !important;
+  margin-left: 2%;
+  margin-right: 3%;
+  width: 130px !important;
+  color: #fff !important;
+  word-wrap: unset !important;
+  text-transform: uppercase !important;
+  font-size: 15px !important;
+}
+.video-app-typo {
+  margin-left: 3%;
+}
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 10%);
+  line-height: 2.5;
+  display: block;
+  height: 50px;
+  width: 120px;
+}
+
+/* list media section ends */
+
+/* video editing section begins here*/
+.css-rvv586-MuiImageList-root {
+  margin-left: 5%;
+  display: grid;
+  width: 90%;
+  overflow-y: auto;
+  padding: 0;
+  gap: 100px !important;
+}
+.media-body {
+  background-color: white !important;
+}
+.login-form-body {
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+}
+.css-10botns-MuiInputBase-input-MuiFilledInput-input {
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+}
+/* video editing section ends here */
