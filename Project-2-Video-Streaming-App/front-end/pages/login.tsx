@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import { Link, TextField } from "@mui/material";
 import { Router, useRouter } from "next/router";
 import axios from "axios";
+import e from "express";
 
 const style = {
   position: "absolute" as "absolute",
@@ -24,20 +25,38 @@ export default function BasicModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const loginHandler = async (event: any) => {
+    event.preventDefault();
+    console.log(event.target[0].value);
+    console.log(event.target[1].value);
+    const data = {
+      email: event.target[0].value,
+      password: event.target[1].value,
+    };
+    axios
+      .post("http://localhost:4000/v1/auth/login", { data })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div>
-      <form>
-        <Button className="liquid-login-button" onClick={handleOpen}>
-          <span className="liq-span"></span>
-          <div className="liq-but">LOGIN HERE</div>
-        </Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style} className="login-form-body">
+      <Button className="liquid-login-button" onClick={handleOpen}>
+        <span className="liq-span"></span>
+        <div className="liq-but">LOGIN HERE</div>
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className="login-form-body">
+          <form onSubmit={loginHandler}>
             <div className="register-form">
               <h1 id="parent-modal-title">Watch & enjoy</h1>
               <span className="register-second">Enter you email</span>
@@ -66,13 +85,13 @@ export default function BasicModal() {
                   <Button className="reg-button">Register here</Button>
                 </a>
               </div>
-              <Link href="/main" className="submit-button">
+              <Button className="submit-button" type="submit">
                 LOGIN
-              </Link>
+              </Button>
             </div>
-          </Box>
-        </Modal>
-      </form>
+          </form>
+        </Box>
+      </Modal>
     </div>
   );
 }

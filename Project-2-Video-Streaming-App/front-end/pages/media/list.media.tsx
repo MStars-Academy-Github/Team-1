@@ -72,6 +72,7 @@ const MediaList = () => {
       setVideos(result);
     })();
   }, []);
+
   return (
     <div>
       <PrimarySearchAppBar />
