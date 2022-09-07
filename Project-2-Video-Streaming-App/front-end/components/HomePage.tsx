@@ -18,7 +18,7 @@ const sidebarVariants: Variants = {
   },
 };
 
-export default function Home() {
+export default function HomePage() {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
