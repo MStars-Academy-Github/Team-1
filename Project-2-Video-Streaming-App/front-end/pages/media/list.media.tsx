@@ -9,6 +9,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { list } from "../api/api.media";
+import PrimarySearchAppBar from "../../src/components/AppBar";
 
 interface Media {
   created: string;
@@ -27,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
-    background: theme.palette.background.paper,
     textAlign: "left",
     padding: "8px 16px",
   },
@@ -74,41 +74,45 @@ const MediaList = () => {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <ImageList className={classes.imageList} cols={2}>
-        <ImageListItem key="Subheader" cols={2}>
-          <ListSubheader component="div">Video image</ListSubheader>
-        </ImageListItem>
-        {videos.map((item: Media) => (
-          <>
-            <ImageListItem key={item._id} cols={1} rows={1}>
-              <ReactPlayer
-                url={`${process.env.NEXT_PUBLIC_SERVER_URL}/v1/media/video/${item._id}`}
-                width="100%"
-                height={"inherit"}
-                controls={true}
-              />
-              <ImageListItemBar
-                className={classes.tileBar}
-                title={item.title}
-                subtitle={
-                  <span>
-                    <span>{item.views}</span>
-                    <span className={classes.tileGenre}>
-                      <em>{item.genre}</em>
+    <div>
+      <PrimarySearchAppBar />
+
+      <div className={classes.root}>
+        <ImageList className={classes.imageList} cols={3}>
+          <ImageListItem key="Subheader" cols={3}>
+            <ListSubheader component="div">Video image</ListSubheader>
+          </ImageListItem>
+          {videos.map((item: Media) => (
+            <>
+              <ImageListItem key={item._id} cols={1} rows={1}>
+                <ReactPlayer
+                  url={`${process.env.NEXT_PUBLIC_SERVER_URL}/v1/media/video/${item._id}`}
+                  width="100%"
+                  height={"inherit"}
+                  controls={true}
+                />
+                <ImageListItemBar
+                  className={classes.tileBar}
+                  title={item.title}
+                  subtitle={
+                    <span>
+                      <span>{item.views}</span>
+                      <span className={classes.tileGenre}>
+                        <em>{item.genre}</em>
+                      </span>
                     </span>
-                  </span>
-                }
-                position="below"
-              >
-                <IconButton area-label={`info about ${item.title}`}>
-                  <InfoIcon></InfoIcon>
-                </IconButton>
-              </ImageListItemBar>
-            </ImageListItem>
-          </>
-        ))}
-      </ImageList>
+                  }
+                  position="below"
+                >
+                  <IconButton area-label={`info about ${item.title}`}>
+                    <InfoIcon></InfoIcon>
+                  </IconButton>
+                </ImageListItemBar>
+              </ImageListItem>
+            </>
+          ))}
+        </ImageList>
+      </div>
     </div>
   );
 };
