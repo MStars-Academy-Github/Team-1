@@ -74,7 +74,7 @@ const MediaList = () => {
   }, []);
   return (
     <div className={classes.root}>
-      <ImageList className={classes.imageList} cols={2}>
+      <ImageList className={classes.imageList} cols={3}>
         <ImageListItem key="Subheader" cols={2}>
           <ListSubheader component="div">Video image</ListSubheader>
         </ImageListItem>

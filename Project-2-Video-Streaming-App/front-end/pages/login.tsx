@@ -60,7 +60,7 @@ export default function BasicModal() {
                 variant="filled"
               />
               <div className="register-section">
-                <h5>Don't have an account?</h5>
+                <h5>Don&apos;t have an account?</h5>
                 <a href="/register" className="register-but">
                   <Button className="reg-button">Register here</Button>
                 </a>
